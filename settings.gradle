@@ -2,5 +2,5 @@ rootProject.name = 'examples'
 
 include 'sockjs-eventbus-bridge'
 include 'message-sender'
-include 'server-bootstrapper'
-include 'client-application'
+include 'client'
+include 'bootstrap'
