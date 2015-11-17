@@ -1,0 +1,42 @@
+group 'com.mmjmanders.vertx'
+version '1.0-SNAPSHOT'
+
+ext {
+    javaVersion = '1.8'
+}
+
+allprojects { project ->
+    apply plugin: 'idea'
+
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+subprojects { project ->
+    project.plugins.withType(JavaPlugin) {
+        project.apply from: "${rootProject.projectDir}/libraries.gradle"
+
+        idea {
+            module {
+                downloadJavadoc = true
+                downloadSources = true
+            }
+        }
+
+        compileJava {
+            sourceCompatibility = javaVersion
+            targetCompatibility = javaVersion
+            options.encoding = 'UTF-8'
+        }
+    }
+}
+
+idea {
+    project {
+        jdkName = javaVersion
+        languageLevel = javaVersion
+    }
+}

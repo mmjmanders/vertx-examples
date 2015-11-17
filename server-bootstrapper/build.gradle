@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'com.mmjmanders.vertx.bootstrapper.ServerBootstrapperApplication'
+
+dependencies {
+    compile project(':sockjs-eventbus-bridge')
+    compile project(':message-sender')
+}
