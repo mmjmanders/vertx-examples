@@ -3,6 +3,7 @@ package com.mmjmanders.vertx.bootstrap;
 import com.mmjmanders.vertx.client.ClientVerticle;
 import com.mmjmanders.vertx.sender.MessageSenderVerticle;
 import com.mmjmanders.vertx.sockjs.SockJSEventBusBridgeVerticle;
+import com.mmjmanders.vertx.stocks.StocksSenderVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
@@ -18,6 +19,7 @@ public class BootstrapApplication {
 
         vertx.deployVerticle(new SockJSEventBusBridgeVerticle(), asyncResult -> log.info("Deployed SockJSEventBusBridgeVerticle with id " + asyncResult.result()));
         vertx.deployVerticle(new MessageSenderVerticle(), asyncResult -> log.info("Deployed MessageSenderVerticle with id " + asyncResult.result()));
+        vertx.deployVerticle(new StocksSenderVerticle(), asyncResult -> log.info("Deployed StocksSenderVerticle with id " + asyncResult.result()));
         vertx.deployVerticle(new ClientVerticle(), asyncResult -> log.info("Deployed ClientVerticle with id " + asyncResult.result()));
     }
 }

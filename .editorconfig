@@ -6,8 +6,8 @@ insert_final_newline = true
 charset = utf-8
 indent_style = space
 
-[*.{java,html,js,gradle}]
+[*.{java,gradle}]
 indent_size = 4
 
-[*.yml]
+[*.{yml,html,js}]
 indent_size = 2
