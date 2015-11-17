@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class MessageSenderVerticle extends AbstractVerticle {
 
-    private static final Random random = new Random();
+    private final Random random = new Random();
 
     @Override
     public void start() throws Exception {
