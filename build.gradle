@@ -6,8 +6,6 @@ ext {
 }
 
 allprojects { project ->
-    apply plugin: 'idea'
-
     repositories {
         mavenLocal()
         jcenter()
@@ -16,6 +14,8 @@ allprojects { project ->
 }
 
 subprojects { project ->
+    apply plugin: 'idea'
+
     project.plugins.withType(JavaPlugin) {
         project.apply from: "${rootProject.projectDir}/libraries.gradle"
 
@@ -31,12 +31,5 @@ subprojects { project ->
             targetCompatibility = javaVersion
             options.encoding = 'UTF-8'
         }
-    }
-}
-
-idea {
-    project {
-        jdkName = javaVersion
-        languageLevel = javaVersion
     }
 }

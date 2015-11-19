@@ -13,7 +13,7 @@ public class ClientVerticle extends AbstractVerticle {
     @Override
     public void start() throws Exception {
         final Router router = Router.router(vertx);
-        router.route("/*").method(HttpMethod.GET).handler(StaticHandler.create().setDirectoryListing(false).setIndexPage("index.html"));
+        router.route(HttpMethod.GET, "/*").handler(StaticHandler.create().setDirectoryListing(false).setIndexPage("index.html"));
 
         vertx.createHttpServer().requestHandler(router::accept).listen(9000);
     }

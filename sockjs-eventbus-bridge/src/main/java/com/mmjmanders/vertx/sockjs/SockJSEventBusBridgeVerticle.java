@@ -16,9 +16,10 @@ public class SockJSEventBusBridgeVerticle extends AbstractVerticle {
     public void start() throws Exception {
         final Router router = Router.router(vertx);
 
-        router.route("/eventbus/*").method(HttpMethod.GET).handler(
+        router.route(HttpMethod.GET, "/eventbus/*").handler(
                 SockJSHandler.create(vertx).bridge(
                         new BridgeOptions().addOutboundPermitted(new PermittedOptions().setAddress("random"))
+                            .addOutboundPermitted(new PermittedOptions().setAddress("stocks"))
                 )
         );
 
