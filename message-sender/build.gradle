@@ -4,4 +4,7 @@ plugins {
 
 dependencies {
     compile "${libs['vertx-web']}"
+
+    testCompile "${libs['vertx-unit']}"
+    testCompile "${libs['junit']}"
 }

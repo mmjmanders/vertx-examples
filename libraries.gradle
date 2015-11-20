@@ -3,6 +3,8 @@ ext {
     libs = [
         'vertx-web':            "io.vertx:vertx-web:$vertxVersion",
         'vertx-hazelcast':      "io.vertx:vertx-hazelcast:$vertxVersion",
-        'spring-boot-starter':  'org.springframework.boot:spring-boot-starter'
+        'vertx-unit':           "io.vertx:vertx-unit:$vertxVersion",
+        'spring-boot-starter':  'org.springframework.boot:spring-boot-starter',
+        'junit':                'junit:junit:4.12'
     ]
 }

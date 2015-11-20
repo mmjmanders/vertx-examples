@@ -40,5 +40,9 @@ subprojects { project ->
             targetCompatibility = javaVersion
             options.encoding = 'UTF-8'
         }
+
+        test {
+            testLogging.quiet.events = ['passed']
+        }
     }
 }
