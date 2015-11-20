@@ -42,7 +42,7 @@ subprojects { project ->
         }
 
         test {
-            testLogging.quiet.events = ['passed']
+            testLogging.events = ['passed']
         }
     }
 }

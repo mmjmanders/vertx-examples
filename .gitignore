@@ -57,7 +57,14 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 # Vert.x
-.vertx
+.vertx/
 
 ### Vagrant
 .vagrant/
+
+### Wercker
+_builds/
+_cache/
+_projects/
+_steps/
+_temp/
