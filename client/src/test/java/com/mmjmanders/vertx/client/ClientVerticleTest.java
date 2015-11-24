@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by mark on 20/11/15.
  */
@@ -39,6 +41,6 @@ public class ClientVerticleTest {
                 async.complete();
             } else context.fail();
         });
-        async.await(10_000);
+        async.await(TimeUnit.MILLISECONDS.convert(10, TimeUnit.SECONDS));
     }
 }
