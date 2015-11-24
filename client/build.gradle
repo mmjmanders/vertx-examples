@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'application'
 }
+
+mainClassName = 'com.mmjmanders.vertx.client.ClientVerticle'
 
 dependencies {
     compile "${libs['vertx-web']}"
+    compile "${libs['vertx-hazelcast']}"
 
     testCompile "${libs['vertx-unit']}"
     testCompile "${libs['junit']}"

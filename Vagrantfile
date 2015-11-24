@@ -43,13 +43,14 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
-  # end
+    vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -64,17 +65,5 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    export DEBIAN_FRONTEND=noninteractive
-
-    apt-get update
-    add-apt-repository -y ppa:webupd8team/java
-    apt-get update
-    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-    apt-get -y install oracle-java8-installer oracle-java8-set-default
-
-    wget https://bintray.com/artifact/download/vertx/downloads/vert.x-3.1.0-full.tar.gz -O /tmp/vertx.tar.gz
-    tar -vxzf /tmp/vertx.tar.gz -C /opt/
-    ln -s /opt/vert.x-3.1.0/bin/vertx /usr/local/bin/vertx
-  SHELL
+  config.vm.provision "shell", path: "vagrant-init.sh"
 end

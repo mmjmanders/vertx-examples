@@ -1,12 +1,3 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE'
-    }
-}
-
 group 'com.mmjmanders.vertx'
 version '1.0-SNAPSHOT'
 
@@ -23,10 +14,9 @@ allprojects { project ->
 }
 
 subprojects { project ->
-    apply plugin: 'idea'
-
     project.plugins.withType(JavaPlugin) {
         project.apply from: "${rootProject.projectDir}/libraries.gradle"
+        project.apply plugin: 'idea'
 
         idea {
             module {
@@ -42,7 +32,7 @@ subprojects { project ->
         }
 
         test {
-            testLogging.events = ['passed']
+            testLogging.events = ['passed', 'failed']
         }
     }
 }

@@ -1,10 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
 }
+
+mainClassName = 'com.mmjmanders.vertx.stocks.StocksSenderVerticle'
 
 dependencies {
     compile "${libs['vertx-web']}"
-
-    testCompile "${libs['vertx-unit']}"
-    testCompile "${libs['junit']}"
+    compile "${libs['vertx-hazelcast']}"
 }
