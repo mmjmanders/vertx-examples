@@ -26,11 +26,14 @@ rm -v /tmp/vertx.tar.gz
 ln -s /opt/vert.x-3.1.0/bin/vertx /usr/local/bin/vertx
 
 cat > /etc/init/vertx.conf <<EOF
-start on runlevel [2345]
+start on vagrant-ready
 stop on runlevel [016]
 
 env JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
-exec /usr/local/bin/vertx bare
+exec /usr/local/bin/vertx bare -cp /vagrant/client/build/libs/client.jar:/vagrant/message-sender/build/libs/message-sender.jar:/vagrant/sockjs-eventbus-bridge/build/libs/sockjs-eventbus-bridge.jar:/vagrant/stocks-sender/build/libs/stocks-sender.jar
 EOF
 
-start vertx
+initctl emit vagrant-ready
+
+# Show ip address
+ifconfig eth1 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1

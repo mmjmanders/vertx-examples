@@ -10,18 +10,16 @@ image::https://app.wercker.com/status/f9aa9f4ae97d0f923ccfe0fa26c42c27/s[link="h
 https://bintray.com/artifact/download/vertx/downloads/vert.x-3.1.0-full.zip).
 
 == Running
-Run `./gradlew <project>:run` (on Linux/OSX) or `gradlew.bat <project>:run` (on Windows); where `<project>` is one of:
+Make sure the project is built by running `./gradlew clean build`. After that you can run each
+verticle by executing the following:
 
-* `:client`
-* `:message-sender`
-* `:sockjs-eventbus-bridge`
-* `:stocks-sender`
-
-To run all modules at once (recommended to use full functionality), use `./gradlew --parallel run` (on Linux/OSX) or
-`gradlew.bat --parallel run` (on Windows). Now you can browse to http://localhost:9000 to see the demo.
+* `vertx run -cp ./client/build/libs/client.jar --ha com.mmjmanders.vertx.client.ClientVerticle`
+* `vertx run -cp ./message-sender/build/libs/message-sender.jar --ha com.mmjmanders.vertx.sender.MessageSenderVerticle`
+* `vertx run -cp ./sockjs-eventbus-bridge/build/libs/sockjs-eventbus-bridge.jar --ha com.mmjmanders.vertx.sockjs.SockJSEventBusBridgeVerticle`
+* `vertx run -cp ./stocks-sender/build/libs/stocks-sender.jar --ha com.mmjmanders.vertx.stocks.StocksSenderVerticle`
 
 == Failover mode
 If you want to run the application with failover functionality you need to have https://www.vagrantup.com/[Vagrant] and
 https://www.virtualbox.org/[VirtualBox] installed and run `vagrant up` from the root folder before running the
-application. Now, when killing one of the running applications, the Vert.x instance inside the VirtualBox instance takes
-over.
+verticles. Now, when killing one of the running verticles, the Vert.x instance inside the VirtualBox instance takes
+over. The project has to be built for this to work (see <<Running>>).

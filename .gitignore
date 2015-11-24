@@ -56,8 +56,13 @@ gradle-app.setting
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
+# oh-my-zsh gradle plugin
+.gradletasknamecache
+
 # Vert.x
 .vertx/
+*.log
+*.pid
 
 ### Vagrant
 .vagrant/
