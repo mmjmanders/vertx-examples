@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
 
 mainClassName = 'com.mmjmanders.vertx.sockjs.SockJSEventBusBridgeVerticle'
@@ -8,4 +9,7 @@ mainClassName = 'com.mmjmanders.vertx.sockjs.SockJSEventBusBridgeVerticle'
 dependencies {
     compile "${libs['vertx-web']}"
     compile "${libs['vertx-hazelcast']}"
+
+    testCompile "${libs['vertx-unit']}"
+    testCompile "${libs['junit']}"
 }
