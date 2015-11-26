@@ -18,8 +18,18 @@ verticle by executing the following:
 * `vertx run -cp ./sockjs-eventbus-bridge/build/libs/sockjs-eventbus-bridge.jar --ha com.mmjmanders.vertx.sockjs.SockJSEventBusBridgeVerticle`
 * `vertx run -cp ./stocks-sender/build/libs/stocks-sender.jar --ha com.mmjmanders.vertx.stocks.StocksSenderVerticle`
 
+It is recommended to run all verticles to see the full example by browsing to http://localhost:9000.
+
+After running all of the above you can run `vagrant up` to start the VirtualBox machine (`Vagrant` and `VirtualBox` are
+required to be installed on your system). When the machine is started you can kill the `message-sender` instance by
+doing a `kill -9 <pid of message-sender>`. You can find the pid by executing `jps -m | grep Launcher` and find the
+`message-sender` verticle. After that, the `vertx` instance inside the `VirtualBox` instance takes over and the client
+keeps receiving messages.
+
 == Failover mode
-If you want to run the application with failover functionality you need to have https://www.vagrantup.com/[Vagrant] and
-https://www.virtualbox.org/[VirtualBox] installed and run `vagrant up` from the root folder before running the
-verticles. Now, when killing one of the running verticles, the Vert.x instance inside the VirtualBox instance takes
-over. The project has to be built for this to work (see <<Running>>).
+Make sure the project is built by running `./gradlew :bare:clean :bare:build`. Now run the server by executing
+`vertx run -cp ./bare/build/libs/bare.jar --ha com.mmjmanders.vertx.bare.ServerVerticle`. Browse to http://localhost:8000
+to see the result. Note the number before the `@`. Open a second terminal and run
+`vertx bare -cp ./bare/build/libs/bare.jar`. When this is running open another terminal and execute
+`kill -9 <number noted>`. After that the bare instance takes over and serves the verticle. You can verify this by again
+browsing to http://localhost:8000. Notice the number before the `@` has changed.
