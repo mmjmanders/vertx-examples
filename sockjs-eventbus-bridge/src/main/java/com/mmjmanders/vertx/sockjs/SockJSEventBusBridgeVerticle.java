@@ -9,7 +9,7 @@ import io.vertx.ext.web.handler.sockjs.PermittedOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSHandler;
 
 /**
- * Created by 310034430 on 17-11-2015.
+ * Created by mark on 17-11-2015.
  */
 public class SockJSEventBusBridgeVerticle extends AbstractVerticle {
 

@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by 310034430 on 17-11-2015.
+ * Created by mark on 17-11-2015.
  */
 public class MessageSenderVerticle extends AbstractVerticle {
 

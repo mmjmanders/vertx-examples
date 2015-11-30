@@ -7,7 +7,7 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.StaticHandler;
 
 /**
- * Created by 310034430 on 17-11-2015.
+ * Created by mark on 17-11-2015.
  */
 public class ClientVerticle extends AbstractVerticle {
 

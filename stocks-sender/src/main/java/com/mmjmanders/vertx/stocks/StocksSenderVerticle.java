@@ -8,7 +8,7 @@ import io.vertx.core.json.JsonObject;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by 310034430 on 19-11-2015.
+ * Created by mark on 19-11-2015.
  */
 public class StocksSenderVerticle extends AbstractVerticle {
 
