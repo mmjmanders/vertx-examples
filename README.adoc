@@ -7,7 +7,7 @@ image::https://app.wercker.com/status/f9aa9f4ae97d0f923ccfe0fa26c42c27/s[link="h
 == Prerequisites
 * JDK version 8 is installed on your system
 * Make sure Vert.x is installed on your system and the `vertx` command is in your `PATH` (Vert.x can be downloaded from
-https://bintray.com/artifact/download/vertx/downloads/vert.x-3.1.0-full.zip).
+https://bintray.com/artifact/download/vertx/downloads/vert.x-3.2.0-full.zip).
 
 == Running
 Make sure the project is built by running `./gradlew clean build`. After that you can run each
